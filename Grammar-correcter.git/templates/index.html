@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Document</title>
+</head>
+<body class="bg-gray-400">
+    <form action="{{url_for('predict')}}" method="post">
+    <h1 style="font-size: 3rem;text-align: center;font-family: 'Franklin Gothic Medium', 'Arial Narrow';">Grammar Correcter</h2>
+        
+        <div class='container'>
+        <label class="text">Enter Sentence : </label>
+        <input class="input-box" type="text" name="text" placeholder="Enter text/sentence">
+
+
+        <button class="btn" type="submit">Correct Grammar</button>
+        <br><br>
+
+            <div class="output">
+        {{corrected_text}}
+    </div>
+        </div>
+    </form>
+</body>
+</html>
