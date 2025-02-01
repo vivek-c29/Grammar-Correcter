@@ -1,5 +1,5 @@
 from flask import Flask,request,jsonify,render_template
-import torch
+import torch,os
 from transformers import T5Tokenizer,T5ForConditionalGeneration
 
 app=Flask(__name__)
@@ -33,9 +33,10 @@ def predict():
     #Predict and generate corrected sentence 
     corrected_text=correct_grammar(input_text)
     return render_template("index.html",corrected_text=corrected_text)
-      
+     
+port=int(os.environ.get("PORT",5000)) 
 #Running flask app
 if __name__=="__main__":
-    app.run(host="0.0.0.0",port=5000,debug=True)
+    app.run(host="0.0.0.0",port=port,debug=True)
     
     
